@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>???? - ???? ???? ?????? ??????????</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .btn {
+            background: white;
+            color: #667eea;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero .emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.2rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            margin: 1rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: right;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features-list li:before {
+            content: "? ";
+            color: #28a745;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features h2, .pricing h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                ?? ????
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">????????</a></li>
+                <li><a href="#pricing">???????</a></li>
+                <li><a href="#about">?? ??????</a></li>
+            </ul>
+            <a href="login.html" class="btn">????? ??????</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="emoji">??</div>
+        <h1>????... ????</h1>
+        <p>???? ???? ?????? ????? ?????????? | ????? ???? + ????? ???? + ??? ?????</p>
+        <div class="cta-buttons">
+            <a href="login.html" class="btn-primary">???? ???? ??????</a>
+            <a href="#features" class="btn-secondary">???? ??????</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>????? ?????</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon">?</div>
+                <h3>????? ????</h3>
+                <p>???? ??? ?????? ?? ????? ?? ??? ???? ??? ???</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">??</div>
+                <h3>????? ???</h3>
+                <p>???? ???? ???? ?????? ????? ??? ?????? ?????</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">??</div>
+                <h3>??? ?????? ?????</h3>
+                <p>??? ????? ????? ?????? ??????? ???????</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">??</div>
+                <h3>????? ??? 24/7</h3>
+                <p>???? ?? ???? ?? ?? ??? ????? ??? ????? ?????</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">??</div>
+                <h3>?????? ?????</h3>
+                <p>???? ????? ????? ?????? ?? ????????</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">??</div>
+                <h3>?????? ??????</h3>
+                <p>???? ???? ?? ???? ?????? ?????? ??? ???????</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>300,000+</h3>
+                <p>???? ??? ??????</p>
+            </div>
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>????? ?????</p>
+            </div>
+            <div class="stat-item">
+                <h3>10x</h3>
+                <p>???? ?? ?????? ????????</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>???? ?? ?? ???</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2>???? ?????? ???????? ??</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>??????</h3>
+                <div class="price">0 ??<span>/???</span></div>
+                <ul class="features-list">
+                    <li>20 ????? ??????</li>
+                    <li>?????? ?????? ????</li>
+                    <li>????? ????</li>
+                    <li>????? ?????</li>
+                </ul>
+                <a href="login.html" class="btn-primary">???? ??????</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <h3>? ?????</h3>
+                <div class="price">1,500 ??<span>/???</span></div>
+                <ul class="features-list">
+                    <li>?????? ??? ??????</li>
+                    <li>???????? ?????</li>
+                    <li>????? ??? ???? AI</li>
+                    <li>??? ?????? ?????</li>
+                    <li>????? ??? 24/7</li>
+                    <li>???? ????????</li>
+                    <li>?????? ?????</li>
+                </ul>
+                <a href="login.html" class="btn-primary">????? ????</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>????????</h3>
+                <div class="price">3,000 ??<span>/???</span></div>
+                <ul class="features-list">
+                    <li>?? ?????? ???????</li>
+                    <li>????? ?????? ?? ??????</li>
+                    <li>????? ???? ????????</li>
+                    <li>??????? ??????</li>
+                    <li>?????? ?????</li>
+                </ul>
+                <a href="login.html" class="btn-primary">????? ????</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ???? - Thaber. ???? ?????? ??????.</p>
+        <p>?? ????... ????</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
