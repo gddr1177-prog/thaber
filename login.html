@@ -46,7 +46,6 @@
         .login-info .emoji {
             font-size: 5rem;
             margin-bottom: 1rem;
-            animation: bounce 2s infinite;
         }
 
         .login-info h2 {
@@ -198,15 +197,6 @@
             gap: 0.5rem;
         }
 
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
         @media (max-width: 768px) {
             .login-container {
                 grid-template-columns: 1fr;
@@ -286,10 +276,8 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             
-            // محاكاة تسجيل الدخول
             if (email && password) {
                 alert('مرحباً! جاري تسجيل الدخول...');
-                // هنا يمكن إضافة Firebase Authentication
                 setTimeout(() => {
                     window.location.href = 'dashboard.html';
                 }, 1000);
