@@ -10,10 +10,3 @@
   "author": "Thaber Team",
   "license": "MIT"
 }
-{
-  "scripts": {
-    "build": "vite build",  // أو
-    "build": "react-scripts build",  // أو
-    "build": "next build"  // حسب نوع مشروعك
-  }
-}
